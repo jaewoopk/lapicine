@@ -1,3 +1,2 @@
-#!/bin/bash
-
-find . -type f -exec git check-ignore {} + | xargs -I{} basename {}
+#!/bin/sh
+find . -exec git check-ignore {} + | xargs -I{} basename {}
