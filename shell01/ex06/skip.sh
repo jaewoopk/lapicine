@@ -1,7 +1,2 @@
-#!/bin/bash
-
-ls -l | while read line
-
-do
-	echo -e "$line\n"
-done
+#!/bin/sh
+ls -l | awk ' NR % 2 == 1 '

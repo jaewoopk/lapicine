@@ -1,3 +1,2 @@
-#!/bin/bash
-
-find ./ | wc -l | sed 's/ //g'
+#!/bin/sh
+find . | wc -l | sed 's/ //g'
