@@ -1,0 +1,5 @@
+Credentials cache: API:6E7E018D-C5BC-4996-9F27-7A282B615D8E
+        Principal: jaewopar@42SEOUL.KR
+
+  Issued                Expires               Principal
+Oct  9 09:33:45 2021  Oct  9 19:33:40 2021  krbtgt/42SEOUL.KR@42SEOUL.KR
