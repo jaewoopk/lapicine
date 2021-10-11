@@ -18,6 +18,8 @@ void	ft_sort_int_tab(int *tab, int size)
 				tab[j] = tab[i];
 				tab[i] = tmp;
 			}
+			j++;
 		}
+		i++;
 	}
 }

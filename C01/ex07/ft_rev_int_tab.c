@@ -4,9 +4,11 @@ void	ft_rev_int_tab(int *tab, int size)
 {
 	int		tmp;
 	int		i;
+	int		j;
 
 	i = 0;
-	while (size / 2)
+	j = size / 2;
+	while (i < j)
 	{
 		tmp = tab[i];
 		tab[i] = tab[size - 1];
