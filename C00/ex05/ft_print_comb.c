@@ -47,7 +47,7 @@ void	circuit3(char a, char b, char c)
 			write (1, &b, 1);
 			write (1, &c, 1);
 			if (a == '7' && b == '8' && c == '9')
-				break;
+				break ;
 			write (1, ", ", 2);
 		}
 		c++;

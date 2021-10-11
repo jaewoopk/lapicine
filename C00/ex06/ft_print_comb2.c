@@ -48,7 +48,7 @@ void	circuit2(char a, char b, char c, char d)
 				write (1, &c, 1);
 				write (1, &d, 1);
 				if (a == '9' && b == '8')
-					break;
+					break ;
 				write (1, ", ", 2);
 			}
 			d++;
