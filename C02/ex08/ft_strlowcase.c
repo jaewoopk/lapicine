@@ -1,14 +1,14 @@
-char	*ft_strlowercase(char *str);
+char	*ft_strlowcase(char *str);
 
-char	*ft_strlowercase(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int		i;
 
 	i = 0;
-	while (*(str + i))
+	while (str[i])
 	{
-		if (*(str + i) >= 'a' && *(str + i) <= 'z')
-			*(str + i) += 'a' - 'A';
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] -= 'A' - 'a';
 		i++;
 	}
 	return (str);
