@@ -3,8 +3,10 @@ int	ft_str_is_alpha(char *str);
 int	ft_str_is_alpha(char *str)
 {
 	int		i;
+	int		length;
 
 	i = 0;
+	length = 0;
 	if (*str == '\0')
 		return (1);
 	while (*str)
@@ -14,9 +16,9 @@ int	ft_str_is_alpha(char *str)
 		else if (*str >= 'A' && *str <= 'Z')
 			i++;
 		str++;
+		length++;
 	}
-	if (i > 0)
+	if (i == length)
 		return (1);
-	else
-		return (0);
+	return (0);
 }

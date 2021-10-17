@@ -8,7 +8,7 @@ char	*ft_strcapitalize(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[0] >= 'a' && str[0] <= 'z')
+		if (str[0] >= 'a' && str[0] <= 'z' && i == 0)
 		{
 			str[0] -= 'a' - 'A';
 		}
@@ -28,15 +28,12 @@ char	*ft_strcapitalize(char *str)
 
 int	is_right(char c)
 {
-	if (c >= 32 && c <= 126)
+	if (c < '0' || c > '9' )
 	{
-		if (c < '0' || c > '9' )
+		if (c < 'A' || c > 'Z')
 		{
-			if (c < 'A' || c > 'Z')
-			{
-				if (c < 'a' || c > 'z')
-					return (1);
-			}
+			if (c < 'a' || c > 'z')
+				return (1);
 		}
 	}
 	return (0);

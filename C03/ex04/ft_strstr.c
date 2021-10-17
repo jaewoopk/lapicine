@@ -2,44 +2,22 @@ char	*ft_strstr(char *str, char *to_find);
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		s;
-	int		count;
-	int		jcount;
+	char		*r_find;
 
+	r_find = to_find;
 	if (*to_find == '\0')
 		return (str);
-	i = 0;
-	j = 0;
-	while (to_find[j])
-		j++;
-	while (str[i])
+	while (1)
 	{
-		s = 0;
-		jcount = j;
-		k = i;
-		count = 0;
-		if (str[i] == to_find[s])
-		{
-			while (jcount)
-			{
-				if (str[k] == to_find[s])
-				{
-					k++;
-					s++;
-					count++;
-				}
-				jcount--;
-			}
-			if (count == j)
-				break ;
-		}
-		i++;
+		if (*r_find == '\0')
+			return (str - (r_find - to_find));
+		if (*str == *r_find)
+			r_find++;
+		else
+			r_find = to_find;
+		if (*str == '\0')
+			break ;
+		str++;
 	}
-	if (count == j)
-		return (&(str[i]));
-	else
-		return (0);
+	return (0);
 }
