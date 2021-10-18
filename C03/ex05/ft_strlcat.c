@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 11:19:36 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/10/18 11:29:32 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 unsigned int	ft_strlen(char *arr);
 
@@ -20,7 +32,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	dest[dest_len + i] = '\0';
 	if (dest_len < size)
 		return (dest_len + src_len);
-	return (size + src_len);	
+	return (size + src_len);
 }
 
 unsigned int	ft_strlen(char *arr)

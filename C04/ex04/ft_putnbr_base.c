@@ -1,8 +1,8 @@
 #include <unistd.h>
 
 void	ft_putnbr_base(int nbr, char *base);
-int	ft_strlen(char *str);
-int	ft_strcheck(char *str);
+int		ft_strlen(char *str);
+int		ft_strcheck(char *str);
 void	ft_putnbr(int nbr, char *str);
 
 void	ft_putnbr_base(int nbr, char *base)
@@ -14,7 +14,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	len = ft_strlen(base);
 	if (len <= 1 || ft_strcheck(base) == 0)
 		return ;
-	ft_putnbr(nbr,base);
+	ft_putnbr(nbr, base);
 }
 
 int	ft_strlen(char *str)
@@ -57,7 +57,7 @@ int	ft_strcheck(char *str)
 void	ft_putnbr(int nbr, char *str)
 {
 	char		c;
-	int		len;
+	int			len;
 
 	len = ft_strlen(str);
 	if (nbr == -2147483648)

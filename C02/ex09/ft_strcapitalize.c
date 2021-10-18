@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/18 09:12:42 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/10/18 15:52:42 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 char	*ft_strcapitalize(char *str);
-int	is_right(char c);
+int		is_right(char c);
 
 char	*ft_strcapitalize(char *str)
 {
@@ -12,7 +24,7 @@ char	*ft_strcapitalize(char *str)
 		{
 			str[0] -= 'a' - 'A';
 		}
-		else if (is_right(str[i-1]))
+		else if (is_right(str[i - 1]))
 		{
 			if (str[i] >= 'a' && str[i] <= 'z')
 				str[i] -= 'a' - 'A';

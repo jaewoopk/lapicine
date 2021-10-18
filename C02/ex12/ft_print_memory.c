@@ -1,20 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/16 19:07:17 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/10/16 19:07:18 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	*ft_print_memory(void *addr, unsigned int size);
 
 void	*ft_print_memory(void *addr, unsigned int size)
 {
-	int		i;
-
-	if (sizeof(*addr) == 1)
-		
-	i = 0;
-	while (addr[i])
-	{
-		if (addr[i] >= 32 && addr[i] <= 126)
-			write (1, &(addr[i]), 1);
-		else
-			write (1, ".", 1);
-	}
-	return (addr);
 }
