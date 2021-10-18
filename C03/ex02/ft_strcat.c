@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:19:18 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/10/18 11:23:41 by jaewopar         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:26:09 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strcat(char *dest, char *src)
 
 	i = 0;
 	j = 0;
-	while (dest[i])
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
-	while (src[j])
+	while (src[j] != '\0')
 	{
 		dest[i] = src[j];
 		i++;

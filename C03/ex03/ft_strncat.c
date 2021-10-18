@@ -6,7 +6,7 @@
 /*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:19:23 by jaewopar          #+#    #+#             */
-/*   Updated: 2021/10/18 11:25:25 by jaewopar         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:28:00 by jaewopar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	{
 		i++;
 	}
-	while (nb && src[j])
+	while ((nb > 0) && src[j])
 	{
 		dest[i] = src[j];
 		i++;
