@@ -1,20 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_params.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/20 18:52:33 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/10/20 18:52:36 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdbool.h>
 
 bool	ft_strcmp(char *s1, char *s2);
+void	ft_print(char **arr);
 
 int	main(int argc, char *argv[])
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 	char		*tmp;
+
 	i = 1;
 	while (i < argc - 1)
 	{
 		j = i + 1;
 		while (j < argc)
 		{
-			if (ft_strcmp(argv[i],argv[j]))
+			if (ft_strcmp(argv[i], argv[j]))
 			{
 				tmp = argv[i];
 				argv[i] = argv[j];
@@ -24,13 +38,22 @@ int	main(int argc, char *argv[])
 		}
 		i++;
 	}
+	ft_print(argv);
+	return (0);
+}
+
+void	ft_print(char **arr)
+{
+	int			i;
+	int			j;
+
 	i = 1;
-	while (i < argc)
+	while (arr[i])
 	{
 		j = 0;
-		while (argv[i][j])
+		while (arr[i][j])
 		{
-			write (1, &argv[i][j], 1);
+			write (1, &arr[i][j], 1);
 			j++;
 		}
 		i++;
