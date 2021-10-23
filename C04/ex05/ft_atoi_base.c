@@ -10,35 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi_base(char *str, char *base);
-int		ft_strlen(char *str);
-int		ft_strcheck(char *str);
-int		ft_atoi(char *str, char *base, int base_len);
+int	ft_atoi_base(char *str, char *base);
+int	ft_strcheck(char *str);
+int	ft_atoi(char *str, char *base, int base_len);
+int	ft_atoi_check(char *str, char *base, int base_len, int count);
+int	ft_match(char *str, char *base);
 
-int	ft_atoi_base(char *str, char *base, int base_len)
+int	ft_atoi_base(char *str, char *base)
 {
 	int		i;
-	int		len;
+	int		ans;
 
 	i = 0;
-	len = ft_strlen(base);
-	if (len <= 1 || ft_strcheck(base) == 0)
-		return ;
-	ft_atoi(str, base);
-}
-
-int	ft_strlen(char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '+' || str[i] == '-')
-			return (0);
-		i++;
-	}
-	return (i);
+	if (ft_strcheck(base) <= 1)
+		return (0);
+	ans = ft_atoi(str, base, ft_strcheck(base));
+	return (ans);
 }
 
 int	ft_strcheck(char *str)
@@ -49,9 +36,15 @@ int	ft_strcheck(char *str)
 
 	i = 0;
 	j = 0;
-	len = ft_strlen(str);
-	while (i < len - 1)
+	while (str[i])
+		i++;
+	len = i;
+	i = 0;
+	while (i < len)
 	{
+		if (str[i] == '+' || str[i] == '-' || str[i] == ' '
+		|| str[i] == '\t' || str[i] == '\n')
+			return (0);
 		j = i + 1;
 		while (j < len)
 		{
@@ -61,7 +54,7 @@ int	ft_strcheck(char *str)
 		}
 		i++;
 	}
-	return (1);
+	return (i);
 }
 
 int	ft_atoi(char *str, char *base, int base_len)
@@ -73,21 +66,64 @@ int	ft_atoi(char *str, char *base, int base_len)
 	i = 0;
 	ans = 0;
 	count = 0;
+	while (*str)
+	{
+		if (*str == ' ' || *str == '\t' || *str == '\n')
+			str++;
+		else if (*str == '\r' || *str == '\f' || *str == '\v')
+			str++;
+		else
+			break;
+	}
+	while (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			count++;
+		str++;
+	}
+	ans = ft_atoi_check(str, base, base_len, count);
+	return (ans);
+}
+
+int	ft_atoi_check(char *str, char *base, int base_len, int count)
+{
+	int		i;
+	int		j;
+	long		ans;
+
+	i = 0;
+	ans = 0;
 	while (str[i])
 	{
-		if (str[i] >= base[0] && str[i] <= base[base_len - 1])
+		j = ft_match(&str[i], base);
+		if (j != -1)
 		{
-			ans += str[i] - base[0];
-			if (str[i + 1] < base[0] || str[i + 1] > base[base_len - 1])
-				break ;
 			ans *= base_len;
+			ans += j;
 		}
-		else if (str[i] == '-')
-			count++;
+		else
+			break;
 		i++;
 	}
-	if (count % 2 == 1)
-		return (ans *= -1);
-	else
+	if (count % 2 == 0)
 		return (ans);
+	return (-ans);
+}
+
+int	ft_match(char *str, char *base)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (base[j])
+	{
+		if (str[i] == base[j])
+		{
+			return (j);
+		}
+		j++;
+	}
+	return (-1);
 }

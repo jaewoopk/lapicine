@@ -70,26 +70,23 @@ void	ft_putnbr(int nbr, char *str)
 {
 	char		c;
 	int			len;
+	long		nb;
 
 	len = ft_strlen(str);
-	if (nbr == -2147483648)
-		write (1, "-2147483648", 11);
+	nb = nbr;
+	if (nb < 0)
+	{
+		write (1, "-", 1);
+		nb = -nb;
+	}
+	if (nb < len)
+	{
+		c = str[nb];
+		write (1, &c, 1);
+	}
 	else
 	{
-		if (nbr < 0)
-		{
-			write (1, "-", 1);
-			nbr = -nbr;
-		}
-		if (nbr < len)
-		{
-			c = str[nbr];
-			write (1, &c, 1);
-		}
-		else
-		{
-			ft_putnbr (nbr / len, str);
-			ft_putnbr (nbr % len, str);
-		}
+		ft_putnbr (nb / len, str);
+		ft_putnbr (nb % len, str);
 	}
 }
