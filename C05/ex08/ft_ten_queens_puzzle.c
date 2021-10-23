@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ten_queens_puzzle.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/23 18:45:04 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/10/23 18:45:50 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdbool.h>
 
-int	ft_ten_queens_puzzle(void);
+int		ft_ten_queens_puzzle(void);
 void	ft_recursive(int *board, int i, int *count);
 bool	ft_is_right(int *board, int i);
 
@@ -21,7 +33,7 @@ bool	ft_is_right(int *board, int i)
 	j = 0;
 	while (j < size)
 	{
-		if (board[j] == i)
+		if (board[i] == j)
 			return (false);
 		else if (board[j] - i == size - j)
 			return (false);
@@ -34,7 +46,7 @@ bool	ft_is_right(int *board, int i)
 
 void	ft_recursive(int *board, int i, int *count)
 {
-	int		check;
+	int			check;
 	char		c;
 
 	check = 0;

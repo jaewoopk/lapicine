@@ -1,26 +1,70 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jaewopar <jaewoopk000@naver.com>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/23 18:44:58 by jaewopar          #+#    #+#             */
+/*   Updated: 2021/10/23 18:59:24 by jaewopar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 int	ft_find_next_prime(int nb);
+int	ft_is_prime(int nb);
+int	ft_sqrt(int nb);
 
 int	ft_find_next_prime(int nb)
 {
-	unsigned int	n;
-	unsigned int	num;
+	int		i;
+	int		num;
 
-	n = 2;
-	if (nb < 2)
-		return (2);
-	num = (unsigned int)nb;
-	while (n <= num / 2)
+	i = 0;
+	num = nb;
+	while (!ft_is_prime(num))
 	{
-		if (num % n == 0)
-		{
-			num++;
-			n = 2;
-			continue;
-		}
-		n++;
+		num++;
 	}
 	return (num);
 }
 
+int	ft_is_prime(int nb)
+{
+	int	i;
+	int	n;
+
+	i = 3;
+	n = ft_sqrt(nb);
+	if (nb < 0 || nb == 0 || nb == 1)
+		return (0);
+	else if (nb == 2)
+		return (1);
+	while (i <= n)
+	{
+		if (n % i == 0)
+			return (0);
+		i += 2;
+	}
+	return (1);
+}
+
+int	ft_sqrt(int nb)
+{
+	long	n;
+	int		tmp;
+
+	n = 1;
+	tmp = 0;
+	if (nb <= 0)
+		return (0);
+	else if (nb == 1)
+		return (1);
+	while (n * n <= (long)nb)
+	{
+		n++;
+	}
+	n--;
+	return ((int)n);
+}
