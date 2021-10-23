@@ -10,21 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int	ft_find_next_prime(int nb);
 int	ft_is_prime(int nb);
 int	ft_sqrt(int nb);
 
 int	ft_find_next_prime(int nb)
 {
-	int		i;
 	int		num;
 
-	i = 0;
 	num = nb;
-	while (!ft_is_prime(num))
+	while (1)
 	{
+		if (ft_is_prime(num) == 1)
+			break;
 		num++;
 	}
 	return (num);
@@ -35,19 +33,17 @@ int	ft_is_prime(int nb)
 	int	i;
 	int	n;
 
-	i = 3;
+	i = 2;
 	n = ft_sqrt(nb);
 	if (nb < 0 || nb == 0 || nb == 1)
 		return (0);
 	else if (nb == 2)
 		return (1);
-	while (i <= n)
+	while (i <= n && nb % i != 0)
 	{
-		if (n % i == 0)
-			return (0);
-		i += 2;
+		i++;
 	}
-	return (1);
+	return (i > n);
 }
 
 int	ft_sqrt(int nb)
