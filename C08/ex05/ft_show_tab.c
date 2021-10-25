@@ -1,4 +1,5 @@
-#include <unsitd.h>
+#include <unistd.h>
+#include "ft_stock_str.h"
 
 void	ft_show_tab(struct s_stock_str *par);
 void	ft_num_print(int n);

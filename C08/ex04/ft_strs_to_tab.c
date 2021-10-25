@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdbooh.h>
 #include "ft_stock_str.h"
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av);
-struct s_stock_str	*ft_fill_store(int i, char **av, t_stock_str *p);
 int					ft_strlen(char *str);
+char			*ft_strdup(char *str);
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
@@ -25,38 +24,19 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 
 	i = 0;
 	store = (t_stock_str *)malloc(sizeof(t_stock_str) * (ac + 1));
-	if (store == 0)
+	if (store == (void *)0)
 		return (0);
 	while (i < ac)
 	{
-		store + i = ft_fill_store(i, av[i], &(store[i]));
+		store[i].size = ft_strlen(*(av + i));
+		store[i].str = *(av + i);
+		store[i].copy = ft_strdup(*(av + i));
 		i++;
 	}
 	store[i].size = 0;
 	store[i].str = 0;
 	store[i].copy = 0;
 	return (store);
-}
-
-struct s_stock_str	*ft_fill_store(int i, char **av, t_stock_str *p)
-{
-	int		i;
-	int		len;
-
-	len = ft_strlen(*av);
-	p->size = len;
-	p->str = *av;
-	i = 0;
-	p->copy = (char *)malloc(sizeof(char) * (len + 1));
-	if (p->copy == 0)
-		return (0);
-	while (i < len)
-	{
-		p->copy[i] = p->str[i];
-		i++;
-	}
-	p->copy[i] = '\0';
-	return (p);
 }
 
 int	ft_strlen(char *str)
@@ -67,4 +47,22 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+char	*ft_strdup(char *str)
+{
+	int		i;
+	char		*dest;
+
+	i = 0;
+	dest = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (dest == (void *)0)
+		return (0);
+	while (i < ft_strlen(str))
+	{
+		dest[i] = str[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
